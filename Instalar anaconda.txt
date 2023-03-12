@@ -1,0 +1,51 @@
+Instalar anaconda
+wget -O anaconda.sh link
+bash anaconda.sh
+
+Crear un notebook
+jupyter-notebook 
+
+Crear un ambiente
+conda create --name py35 python=3.5
+
+Listar ambientes
+conda env list
+
+Elminar ambiente
+conda env remove --name py35
+
+Cambiar nombre o crear otro ambiente que sea la copia de otro
+conda create --name py39 --copy --clone py35
+
+Listar paquetes de un ambiente
+conda list
+conda list pandas
+
+Actualizar paquete
+conda update pandas
+
+Instalar paquete
+conda install pandas=1.2
+
+Instalar paquete por canal 
+conda install --channel conda-forge boltons
+
+Desinstalar paquete
+conda remove pandas
+
+Cada vez que modificamos el ambiente se crea una revision, una opcion para eliminar un paquete seria volver a la revision anterior donde se instalo ese paquete.
+conda list --revision
+conda install --revision
+
+Exportar ambientes || exportar las dependencias que nosotros agregamos manualmente
+conda env export --from-history --file enviroment.yml
+
+Importar un ambiente siendo el otro usuario
+conda env create --file enviroment.yml
+
+Divide y venceras
+Esta idea consiste en que debido a que en proyectos grandes usamos muchas dependencias, modificar una podria afecta otra y hacer un caos
+Por eso es que es mejor crear varios ambientes, un ambiente para externos, otro para el modelo y otro para la comunicacion
+Podriamos crear una carpeta en nuestro proyecto que contenga estos ambientes en .yml
+Snake make nos ayuda a aplicar esta idea, investigalo
+
